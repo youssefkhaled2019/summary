@@ -1,0 +1,28 @@
+FastAPI
+ async/await
+ dtabase 
+    SQLAlchemy
+    SQLModel
+ Authentication
+   JWT
+   Access Token
+   Refresh Token
+   Password Hashing
+ Permissions & Roles
+ Middleware
+ File Upload
+ Background Tasks
+ WebSockets
+ Testing
+ Deployment
+  Docker
+  Nginx
+  Linux Server
+  
+Microservices
+Swagger
+
+
+
+----------------
+pip install python-jose passlib[bcrypt]

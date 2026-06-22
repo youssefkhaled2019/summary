@@ -1,0 +1,26 @@
+python -m venv env
+env\Scripts\activate  
+(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (&  H:\0000\python-projects\FastAPI\test\env\Scripts\Activate.ps1)
+
+
+
+------------------------------
+uvicorn main:app --reload      
+http://127.0.0.1:8000
+http://127.0.0.1:8000/docs
+http://127.0.0.1:8000/redoc
+
+
+------------------------------
+python.exe -m pip install fastapi 
+python.exe -m pip install uvicorn
+python.exe -m pip install sqlalchemy
+
+
+pip install fastapi uvicorn
+
+
+
+pip install aiosqlite  #SQLite Async:
+pip install asyncpg    #PostgreSQL Async:
+------------------------------

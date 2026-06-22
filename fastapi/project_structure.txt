@@ -1,0 +1,24 @@
+project/
+│
+├── main.py
+├── core/
+│   ├── database.py
+│   ├── dependencies.py
+│   ├── config.py
+│   └── security.py
+├── users/
+│   ├── router.py
+│   ├── model.py
+│   ├── schema.py
+│   └── service.py
+
+====================================================
+project/
+
+├── main.py
+├── database.py
+├── models.py
+├── schemas.py
+├── crud.py
+└── routers/
+    └── users.py
