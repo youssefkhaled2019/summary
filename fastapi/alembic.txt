@@ -1,0 +1,16 @@
+--------------------------------
+>>>  python -m pip  install  alembic
+
+>>>  alembic init alembic
+------- alembic/env.py -------
+from core.config import settings#<-----
+# config = context.config
+config.set_main_option( "sqlalchemy.url", settings.DATABASE_URL)  #<-----
+
+
+>>> alembic revision --autogenerate
+>>> alembic upgrade head
+
+
+pip show alembic 
+alembic --help   || python -m alembic --help  || py -m alembic --help

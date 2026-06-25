@@ -41,6 +41,9 @@ def get_users(page: int = 1, limit: int = 10):
 # Request Body + Pydantic
 @app.post("/users" ,response_model=UserResponse,status_code=status.HTTP_201_CREATE)# response_model=List[UserResponse]
 def create_user(user: User):#<----Request Body 
+    # user.username
+    # user.model_dump() #json to Dictionary
+    # user.model_dump_json() Dictionary to  json
     return user
 
 
@@ -67,3 +70,20 @@ def get_users():
 
 # main.py
 app.include_router(router)
+
+# -------------------
+from app.database import engine
+from app.database import Base
+
+Base.metadata.create_all( bind=engine)
+
+from fastapi import Depends
+from sqlalchemy.orm import Session
+
+from app.database import get_db
+
+@app.get("/users")
+def get_users(db: Session = Depends(get_db)):
+    users = db.query(User).all()
+
+    return users

@@ -1,13 +1,14 @@
 FastAPI
  async/await
- dtabase 
+ dtabase           PostgreSQL
     SQLAlchemy
     SQLModel
  Authentication
    JWT
    Access Token
    Refresh Token
-   Password Hashing
+   Password Hashing  
+  ---------------  [Hash Password,Verify Token,Protected Routes,]
  Permissions & Roles
  Middleware
  File Upload
@@ -21,8 +22,105 @@ FastAPI
   
 Microservices
 Swagger
-
-
-
+LLM APIs (OpenAI, Anthropic, Gemini)
+RAG Systems
+Vector Databases
 ----------------
-pip install python-jose passlib[bcrypt]
+1-Basics✅             
+    FastAPI App ✅
+    Routes ✅                      #@app.post("/users")
+    GET / POST / PUT / DELETE ✅
+2-Request & Response
+    Path Parameters ✅    GET /users/1/posts/10
+    Query Parameters ✅   GET /products?page=2&limit=5
+    Request Body ✅
+    Response Models✅
+3-Pydantic
+    BaseModel
+    Validation
+    Serialization 
+4-Database
+    SQLAlchemy
+    PostgreSQL
+    CRUD Operations       
+5-Authentication
+    JWT Tokens
+    Login & Register
+    Protected Routes    
+6-Advanced
+    Middleware
+    Dependency Injection
+    Background Tasks
+    File Uploads    
+7-Deployment
+    Uvicorn
+    Docker
+    Nginx
+    Cloud Deployment    
+----------------
+Python
+SQL
+Data Structures & Algorithms
+
+--------------------------------
+
+
+4. Database
+SQLAlchemy
+PostgreSQL
+CRUD Operations
+5. Authentication
+JWT Tokens
+Login & Register
+Protected Routes
+6. Advanced
+Middleware
+Dependency Injection
+Background Tasks
+File Uploads
+7. Deployment
+Uvicorn
+Docker
+Nginx
+Cloud Deployment
+
+--------------------------------
+
+SQLAlchemy ORM Basics
+Columns & Data Types
+CRUD Operations
+Relationships (One-to-One, One-to-Many, Many-to-Many)
+Alembic Migrations
+Repository Pattern
+--------------------------------
+
+✅ ORM Basics
+✅ Columns & Data Types
+✅ Engine & Session
+🔜 Create Tables
+🔜 Insert Data
+🔜 Query Data
+🔜 Update Data
+🔜 Delete Data
+🔜 Relationships (الأهم)
+🔜 Alembic Migrations
+--------------------------------
+Dependency Injection
+
+app/
+│
+├── database.py
+│
+├── models/
+│   ├── user.py
+│   └── post.py
+│
+├── schemas/
+│   ├── user.py
+│   └── post.py
+│
+├── routers/
+│   ├── users.py
+│   └── posts.py
+│
+└── main.py

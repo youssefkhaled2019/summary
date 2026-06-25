@@ -11,7 +11,7 @@ Base = declarative_base()
 # ====================== core/dependencies.py ======================
 
 from core.database import SessionLocal
-from sqlalchemy.orm import Session
+
 
 
 def get_db():
