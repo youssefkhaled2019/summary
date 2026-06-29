@@ -4,11 +4,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase,declarative_base,sessionmaker
 
 
-DATABASE_URL = "sqlite:///app.db"
-# DATABASE_URL = "postgresql+psycopg2://postgres:1234@localhost/mydb" #PostgreSQL
-                    #"mysql+pymysql://user:password@localhost/db_name" #MySQL
+DATABASE_URL = "sqlite:///app.db"                                      #"sqlite:///./test.db"
+#DATABASE_URL = "postgresql+psycopg2://postgres:1234@localhost/mydb" #PostgreSQL "postgresql://user:password@localhost/dbname"
+                                            #"mysql+pymysql://user:password@localhost/db_name" #MySQL
 # Engine
 engine = create_engine(DATABASE_URL,connect_args={"check_same_thread": False}) #مسؤول عن الاتصال بقاعدة البيانات.
+# engine = create_engine( DATABASE_URL, connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {})
 """
 echo=True يجعل SQLAlchemy يطبع SQL في الـ Terminal.
 """
@@ -23,14 +24,12 @@ SessionLocal = sessionmaker(bind=engine,autoflush=False,autocommit=False)
 Base = declarative_base()
 
 # Dependency for FastAPI
-def get_db():
-    db = SessionLocal()
-
-    try:
-        yield db
-
-    finally:
-        db.close()
+# def get_db():
+#     db = SessionLocal()
+#     try:
+#         yield db
+#     finally:
+#         db.close()
 
 
 #  ------------ main.py

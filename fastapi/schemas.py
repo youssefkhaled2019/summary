@@ -15,6 +15,10 @@ class UserRole(str, Enum):
     user = "user"
     moderator = "moderator"
 
+class Address(BaseModel):
+    city: str
+    street: str
+
 class User(BaseModel):
     Age = Annotated[int, Field(gt=0, lt=120)]  # Python و FastAPI.  الأسلوب الحديث في 
 
@@ -22,7 +26,7 @@ class User(BaseModel):
     age: int = Field(gt=0, lt=100)
     username: str = Field(min_length=3) #Validation   
     email: EmailStr
-    is_active: bool
+    is_active: bool = False
     price1: float
     price2: Decimal
     id: UUID
@@ -32,8 +36,12 @@ class User(BaseModel):
     email: EmailStr
     
     bio: Optional[str] = None
+    address: Optional[Address]= None
+    agex: int | None = None
+
     skills: List[str]      #    skills=["Python", "FastAPI"]
     settings: Dict[str, str] #{"theme": "dark","lang": "ar"}
+    data: Dict[str, List[str]]  #   "skills": ["Python", "FastAPI"]
     tags: Set[str]           #{'python', 'ai'}
     id: Union[int, str]
 
@@ -41,9 +49,12 @@ class User(BaseModel):
     role: UserRole
 
     url: HttpUrl
+    # ItemResponse
+    model_config = ConfigDict(from_attributes=True)  #<-------- orm to json
+    model_config = ConfigDict(extra="forbid") # الزياده لو أرسلت حقولًا إضافية سيظهر خطأ.   
     
-    model_config = ConfigDict(extra="forbid")
-
+    class Config:
+        from_attributes = True
     
     @field_serializer("created_at")
     def serialize_date(self, value):
@@ -78,11 +89,32 @@ class User(BaseModel):
     username: str
     profile: Profile
 
+
+class User(BaseModel):
+    name: str
+    age: int
+    address: Optional[Dict[str, str]] = Field(default_factory=lambda: { "name": "Youssef", "city": "Luxor"})
+
+
+class ItemUpdate(BaseModel):
+    title: str | None = None
+    description: str | None = None
+
 """
 age: int = Field( gt=0,lt=100)
 first_name: str = Field(alias="firstName")  
 phone: str = Field(pattern=r"^01[0-9]{9}$")
 username: str = Field(min_length=3,max_length=20)
+
+| Constraint | المعنى        |
+| ---------- | ------------- |
+| min_length | أقل عدد حروف  |
+| max_length | أكبر عدد حروف |
+| gt         | أكبر من       |
+| lt         | أقل من        |
+| ge         | أكبر أو يساوي |
+| le         | أقل أو يساوي  |
+
 """
 #  ValidationError   # 
 # =======================
@@ -96,13 +128,45 @@ print(user.model_dump())
 print(user.model_dump_json())
 user.model_dump(exclude={"age"})
 user.model_dump( include={"name"})
+update_data = data.model_dump(exclude_unset=True)  # 1. خذ البيانات النظيفة فقط
+new_item = Item(**update_data)
 
-data = {
-    "name": "Ahmed",
-    "age": 25
-}
+# 3. احفظ في الداتابيز
+db.add(new_item)
+db.commit()
+db.refresh(new_item)
+
+data = item.model_dump(exclude={"user"})
+new_item = Item(**data)
 
 user = User.model_validate(data)
 new_user = user.model_copy()
 new_user = user.model_copy(update={"age": 30})
+
+
+
+"""
+new_item = Item(**item.model_dump())
+
+---- servese
+user.model_dump(exclude_unset=True)
+user.model_dump(exclude={"extra"})
+----
+data = user.model_dump(exclude_unset=True)
+
+new_user = User(**data)
+"""
+
+
+
+
+
 # =======================
+# تستخدم لقراءة متغيرات البيئة (.env).
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    database_url: str
+    secret_key: str
+
+    # settings = Settings()

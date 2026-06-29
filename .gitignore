@@ -26,14 +26,10 @@ db.sqlite3
 all_python_code_part1.txt
 all_python_code_part2.txt
 all_python_code_part3.txt
-
+__pycache__
+x
 # -------------------
 xxxxx1
-
-
-
-
-
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

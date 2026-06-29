@@ -12,8 +12,6 @@ Base = declarative_base()
 
 from core.database import SessionLocal
 
-
-
 def get_db():
     db = SessionLocal()
     try:
@@ -48,12 +46,15 @@ class ItemResponse(BaseModel):
 
     model_config = ConfigDict(from_attributes=True)
 
+class ItemUpdate(BaseModel):
+    title: str | None = None
+    description: str | None = None
 # ====================== item/router.py ======================
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from item.model import Item
-from item.schema import ItemCreate, ItemResponse
+from item.schema import ItemCreate, ItemResponse,ItemUpdate
 from core.dependencies import get_db
 
 router = APIRouter()
@@ -105,6 +106,19 @@ def update_item(
 
     return item
 
+@router.patch("/{item_id}", response_model=ItemResponse)
+def update_item(item_id: int, data: ItemUpdate, db: Session = Depends(get_db)):
+
+    item = db.query(Item).filter(Item.id == item_id).first()
+
+    update_data = data.model_dump(exclude_unset=True)
+    for key, value in update_data.items():
+        setattr(item, key, value)
+
+    db.commit()
+    db.refresh(item)
+    return item
+
 @router.delete("/{item_id}")
 def delete_item(item_id: int, db: Session = Depends(get_db)):
 
@@ -125,9 +139,13 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello FastAPI"}
+
 app.include_router(router, prefix="/items")
-
-
 # ====================== test/ ======================
 
 

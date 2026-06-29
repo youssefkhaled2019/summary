@@ -1,7 +1,44 @@
 --------------------------------
 >>>  python -m pip  install  alembic
-
 >>>  alembic init alembic
+>>>  Base.metadata.create_all(bind=engine) حزف
+1- in alembic.ini:
+-----------in /alembic.ini:----------------
+sqlalchemy.url = postgresql://user:pass@localhost/db  PostgreSQL     postgresql://postgres:1234@localhost/mydb
+sqlalchemy.url = sqlite:///./users.db                  SQLite
+
+------------- alembic/env.py --------------
+from database import Base
+target_metadata = Base.metadata 
+----------
+alembic revision --autogenerate -m "create users table"
+alembic upgrade head
+----------
+pip show alembic
+alembic history
+alembic current
+alembic downgrade -1               1) الرجوع خطوة واحدة:
+alembic downgrade abc123            2) الرجوع لنسخة معينة: <revision_id>
+alembic downgrade base             3) الرجوع للبداية:
+----------
+"""
+كل تعديل على Models
+----------
+add column
+drop column
+new table
+foreign key
+index
+----------
+يحتاج
+alembic revision --autogenerate -m "description"
+alembic upgrade head
+"""
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+
 ------- alembic/env.py -------
 from core.config import settings#<-----
 # config = context.config
@@ -14,3 +51,6 @@ config.set_main_option( "sqlalchemy.url", settings.DATABASE_URL)  #<-----
 
 pip show alembic 
 alembic --help   || python -m alembic --help  || py -m alembic --help
+
+
+--------------------------------

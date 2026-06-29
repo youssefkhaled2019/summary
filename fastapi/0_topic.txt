@@ -8,7 +8,10 @@ FastAPI
    Access Token
    Refresh Token
    Password Hashing  
-  ---------------  [Hash Password,Verify Token,Protected Routes,]
+   Login
+   Logout
+   Protected Routes
+  ---------------  [,Verify Token,,]
  Permissions & Roles
  Middleware
  File Upload
@@ -26,19 +29,158 @@ LLM APIs (OpenAI, Anthropic, Gemini)
 RAG Systems
 Vector Databases
 ----------------
-1-Basics✅             
-    FastAPI App ✅
-    Routes ✅                      #@app.post("/users")
-    GET / POST / PUT / DELETE ✅
-2-Request & Response
-    Path Parameters ✅    GET /users/1/posts/10
-    Query Parameters ✅   GET /products?page=2&limit=5
-    Request Body ✅
-    Response Models✅
-3-Pydantic
-    BaseModel
-    Validation
-    Serialization 
+
+
+Status Codes
+Tags
+OpenAPI & Swagger Docs
+Dependency Injection
+
+Pydantic
+ Settings Management
+
+
+Models
+Relationships
+CRUD Operations
+
+Alembic
+    Database Migrations
+    Upgrade / Downgrade
+
+PostgreSQL
+    Indexes
+    Constraints
+    Transactions    
+
+Authentication & Authorization
+JWT
+    Access Token
+    Refresh Token
+OAuth2
+    Password Flow
+    Bearer Authentication
+RBAC
+Role Based Access Control
+مثال:
+Admin
+Manager
+User
+
+
+Advanced FastAPI
+    Middleware
+    Background Tasks
+    Lifespan Events
+    Dependency Overrides
+    Custom Exceptions
+    Global Error Handling
+
+Async Programming
+    مهم جدًا.
+    async
+    await
+    Async SQLAlchemy
+    Async PostgreSQL
+
+Testing
+    Pytest
+    TestClient
+    Mocking
+
+Caching
+    Redis
+    Cache Invalidation
+    Session Storage  
+
+Task Queue
+ Celery
+    Background Jobs
+    Scheduled Tasks
+ Redis
+
+ Broker
+
+Docker
+    Dockerfile
+    Docker Compose
+
+Production
+    Gunicorn
+    Uvicorn Workers
+    Nginx
+    Environment Variables
+    Logging
+
+AI Engineer Topics
+
+    بعد تعلم FastAPI Backend، ابدأ في ربطه بالذكاء الاصطناعي.
+
+    APIs for LLMs
+    OpenAI API
+    Hugging Face
+    Ollama
+    llama.cpp
+
+
+
+LangChain
+
+    LangChain
+
+    Prompt Templates
+    Chains
+    Agents
+    Tools
+    Memory
+    RAG
+
+Vector Databases
+    Chroma
+    FAISS
+    Qdrant    
+
+
+
+RAG Systems
+    Document Loading
+    Chunking
+    Embeddings
+    Retrieval
+    Generation    
+
+AI Deployment
+    FastAPI + LLM
+    Streaming Responses
+    Model Serving
+    GPU Deployment    
+
+ترتيب التعلم المقترح
+    Python Advanced
+    FastAPI Basics
+    Pydantic
+    SQLAlchemy
+    PostgreSQL
+    JWT Authentication
+    Alembic
+    Redis
+    Docker
+    Testing
+    Async Programming
+    FastAPI Advanced
+    LangChain
+    RAG
+    Vector Databases
+    AI Agents
+    LLM Deployment
+
+    بما أنك كنت تعمل مؤخرًا على JWT وFastAPI، فأقرب خطوة منطقية الآن هي:
+    Refresh Token → Role-Based Authorization (RBAC) → PostgreSQL + Alembic → Redis → Docker → LangChain & RAG. هذا المسار يجهزك بقوة للعمل كـ Backend Developer ثم الانتقال إلى AI Engineering.
+
+
+
+----------------
+
 4-Database
     SQLAlchemy
     PostgreSQL
@@ -84,6 +226,61 @@ Docker
 Nginx
 Cloud Deployment
 
+Python Advanced
+
+7- Status Codes
+8- Dependency Injection
+9- Exception Handling
+10- Middleware
+11- Authentication
+12- Database Integration
+
+6- Redis
+7- Celery
+10- System Design Basics
+11- LangChain / AI APIs
+
+
+Python Advanced
+│
+├── OOP
+├── Typing
+├── Dataclasses
+└── Asyncio
+
+
+
+FastAPI
+│
+├── Routing
+├── Dependencies
+├── Authentication
+└── Database
+
+SQLAlchemy
+│
+├── Models
+├── Relationships
+├── CRUD
+└── Migrations
+
+SQLAlchemy
+├── Engine
+├── Session
+├── Models
+├── Relationships
+├── CRUD
+└── Alembic
+
+JWT Authentication
+Redis
+Celery
+Docker
+Testing
+LangChain
+RAG
+Agents
+Deployment
 --------------------------------
 
 SQLAlchemy ORM Basics
@@ -124,3 +321,529 @@ app/
 │   └── posts.py
 │
 └── main.py
+
+SQL
+│
+├── SELECT
+├── JOIN
+├── GROUP BY
+├── HAVING
+├── Subquery
+└── Transactions
+
+Database Design
+│
+├── PK
+├── FK
+├── Relationships
+└── Indexes
+
+ORM
+│
+├── Models
+├── CRUD
+├── Relationships
+└── Migrations
+
+
+
+
+Users CRUD
+Products CRUD
+SQLite Database
+Validation
+Error Handling
+
+وده هيخليك تفهم FastAPI بجد بدل الحفظ.
+
+بعد ما تتقن الأساسيات دي تنتقل لـ:
+
+Pydantic Advanced
+SQLAlchemy
+Authentication + JWT
+Async Programming
+File Uploads
+Dependency Injection
+AI APIs Integration
+RAG Systems APIs
+Background Tasks
+Docker + Deployment
+----------------------------------
+ليه Pydantic مهم جدًا للـ AI Backend Engineer؟
+
+لأنك هتستخدمه في:
+
+AI APIs
+OpenAI Responses
+LangChain Inputs
+RAG Pipelines
+Structured Output
+Agents Systems
+لازم تتدرب على
+
+
+✅ Nested Models
+✅ Lists داخل Models
+✅ Dict Fields
+✅ Response Models
+✅ Custom Validators
+✅ Settings Management
+----------------------------------
+CRUD الحقيقي مع Database
+JWT Auth
+Async FastAPI
+----------------------------------
+
+
+
+Relationships
+JWT Authentication
+Async SQLAlchemy
+Alembic Migrations
+----------------------------------
+Relationships
+Authentication JWT
+Refresh Tokens
+Async SQLAlchemy
+Alembic
+Pagination
+Filtering
+Search APIs
+File Uploads
+AI APIs Integration
+
+
+
+---------------------
+JWT Authentication
+Password Hashing
+OAuth2
+Refresh Tokens
+Role-Based Access
+Async Dependencies
+Background Tasks
+
+------------------------------
+Password Hashing
+JWT Access Token
+Refresh Token
+OAuth2PasswordBearer
+Login / Register
+Protected Routes
+Current User
+Roles & Permissions
+
+------------------------------
+
+مهم جدًا للـ AI Systems.
+
+تعلم:
+
+async / await
+asyncio
+Event Loop
+Async DB
+Async APIs
+Background Tasks
+
+------------------------------
+
+
+مثل:
+
+User → Posts
+User → Orders
+Chat → Messages
+
+تعلم:
+
+One To Many
+Many To Many
+Foreign Keys
+Relationships
+------------------------------
+Alembic
+
+لإدارة الـ Database Migrations.
+------------------------------
+Middleware
+Logging Middleware
+CORS Middleware
+Authentication Middleware
+------------------------------
+File Uploads
+
+رفع:
+
+Images
+PDFs
+AI Documents
+------------------------------
+) AI APIs Integration 🤖
+
+مثل:
+
+OpenAI APIs
+Embeddings
+Chat APIs
+Streaming Responses
+
+------------------------------
+
+) RAG Systems
+
+وده المجال اللي أنت مهتم بيه أصلًا.
+
+تعلم:
+
+Vector Databases
+Chunking
+Embeddings
+Retrieval
+LangChain
+AI Pipelines
+-------------------
+Relationships
+Foreign Keys
+Async SQLAlchemy
+Alembic
+Transactions
+Repository Pattern
+Unit of Work
+
+-------------------
+
+الآن (ضروري):
+Sync CRUD
+SQLAlchemy ORM
+Sessions + DI
+Authentication basics
+بعد كده:
+Async/Await
+Async DB
+AI APIs
+RAG systems
+
+
+أولًا	Sync SQLAlchemy
+
+ثالثًا	Auth + JWT
+رابعًا	Async SQLAlchemy
+خامسًا	AI / RAG Systems
+
+-------------------
+لما تشتغل في:
+
+AI APIs 🤖
+RAG Systems
+Chat Applications
+High traffic systems
+Streaming (real-time responses)
+
+-------------------
+Session في المشاريع الكبيرة
+
+في الأنظمة الكبيرة:
+
+كل Request له Session خاصة
+لا تشارك Session بين المستخدمين
+يتم إغلاقها بعد انتهاء الطلب
+
+-------------------
+Async Session
+
+في المشاريع الحديثة تستخدم:
+
+AsyncSession
+
+بدل:
+
+Session
+-------------------
+استخدم Async لما:
+Traffic عالي
+APIs كثيرة
+AI chat systems
+Streaming responses
+RAG pipelines
+-------------------
+Relationships (One to Many)
+Authentication (JWT)
+Async CRUD
+Pagination
+Filtering & Search
+Services Layer (Clean Architecture)
+-------------------
+🔥 “إزاي تبني Error Handling System احترافي 100% زي الشركات (logging + codes + structure)”
+-------------------
+Middleware
+Logging Middleware
+CORS Middleware
+Authentication Middleware
+-------------------
+Background Tasks
+إرسال emails
+معالجة بيانات بدون تعطيل الـ API
+-------------------
+التعامل مع قواعد البيانات (Database Layer)
+🔹 SQL + ORM
+SQLAlchemy أو SQLModel
+Sessions lifecycle
+Relationships (One-to-Many / Many-to-Many)
+
+🔹 Migrations
+Alembic
+Versioning للـ DB schema
+
+🔹 Best Practice
+Repository pattern
+Service layer separation
+
+-------------------
+
+
+4) Authentication & Security
+🔹 JWT Authentication
+Access Token / Refresh Token
+OAuth2PasswordBearer
+🔹 Security
+Password hashing (bcrypt)
+Rate limiting
+CORS setup
+Role-Based Access Control (RBAC)
+-------------------
+5) Performance & Scalability
+🔹 Async Programming
+async / await
+async DB drivers (asyncpg)
+🔹 Optimization
+caching (Redis)
+pagination
+query optimization
+🔹 Load handling
+Gunicorn / Uvicorn workers
+horizontal scaling concepts
+
+-------------------
+6) Testing
+🔹 Unit & Integration Testing
+pytest
+TestClient in FastAPI
+mocking DB
+🔹 Coverage
+test coverage reports
+-------------------
+
+7) Production & Deployment
+🔹 Docker
+containerizing FastAPI apps
+🔹 CI/CD
+GitHub Actions basics
+🔹 Deployment
+Linux server setup
+Nginx reverse proxy
+HTTPS (SSL)
+-------------------
+8) AI Backend (المهم ليك لو هدفك AI Engineer)
+🔹 Serving ML Models
+تحميل models (scikit / PyTorch / TensorFlow)
+model inference APIs
+🔹 Vector Databases
+Pinecone / FAISS / Weaviate
+🔹 RAG Systems
+embeddings
+retrieval + generation pipeline
+🔹 LLM APIs
+OpenAI / local models integration
+prompt engineering backend layer
+-------------------
+
+🔥 Roadmap مختصر جدًا (ترتيب صح)
+FastAPI basics
+Database + ORM
+Auth + Security
+Async + Performance
+Testing
+Deployment (Docker + Linux)
+AI Backend (RAG + LLM + Vector DB)
+
+
+
+
+
+
+
+-------------------
+UUID IDs
+Alembic Migrations
+PostgreSQL
+Async SQLAlchemy
+Soft Delete
+Audit Logs
+Many-to-Many
+AI Chat Tables
+Vector Embeddings Tables
+
+
+Mid-level
+
+1) Authentication Advanced
+    Refresh Token system
+    Token rotation
+    Logout / blacklist
+    Multi-device sessions
+
+2) Authorization (مش بس login)
+Role-based access (admin / user)
+Permissions layer (not just if role == admin)
+Guards / middleware    
+
+
+
+3) Architecture (دي أهم نقطة)
+
+router → service → repository → db
+
+
+4) Error Handling System
+custom exceptions
+global error handler
+consistent API responses
+
+
+
+5) Real-world features
+pagination
+filtering
+caching (Redis)
+background tasks
+
+
+
+6) Database skills
+relationships (one-to-many, many-to-many)
+migrations (Alembic)
+indexing
+
+
+
+7) System thinking (دي اللي بتفرق Mid-level)
+
+تقدر تجاوب:
+
+لو 1M users دخلوا النظام؟
+لو auth service وقع؟
+لو database بطيء؟
+
+
+
+3 شهور:
+تقوي architecture
+تبني مشروع أكبر
+3 شهور بعدها:
+system design basics
+real production patterns
+
+👉 خلال 6 شهور تقدر توصل Mid-level (لو مركز)
+--------------------------------------------------
+--------------------------------------------------
+FastAPI + JWT Authentication
+FastAPI + AI Chatbot (RAG + LLM)
+FastAPI JWT + PostgreSQL
+-------------------------
+) 🗄️ Database حقيقي
+SQLite أو PostgreSQL
+SQLAlchemy ORM
+2) 🔐 Authentication
+JWT Login/Register
+3) ⚡ Async Version
+async/await + performance optimization
+4) 🤖 AI Version
+CRUD + Chatbot + RAG
+-------------------------
+
+Alembic migrations
+
+
+
+
+Full CRUD + JWT مع بعض
+-----------------------------
+🚀 الخطوة التالية
+
+بعد المشروع ده مباشرة:
+
+JWT Authentication
+PostgreSQL
+Alembic Migrations  في production الأفضل تستخدم Alembic بدلها
+Async FastAPI
+Docker
+Deployment
+
+وده بقى مستوى Backend Engineer حقيقي 💪
+# Alembic Migrations
+"""
+🔥 الفرق
+create_all()
+بسيط
+للتعلم
+لا يدعم Versioning
+Alembic
+احترافي
+Migration History
+Upgrade / Downgrade
+Production Safe
+"""
+--------------------------------
+🚀 بعد pytest
+
+الخطوة الاحترافية التالية:
+
+Test Database
+Mocking
+Async Testing
+Coverage Report
+
+وده مستوى الشركات 💪
+--------------------------------
+الأكثر استخدامًا مع FastAPI:
+التقنية	      الاستخدام
+PostgreSQL	Database
+SQLAlchemy	ORM
+Alembic		Migrations
+Redis		Cache
+JWT		Authentication
+--------------------------------
+Vector DB → Qdrant / Chroma
+LLM → OpenAI / Ollama
+--------------------------------
+
+Chat APIs
+RAG Systems
+AI Agents
+Embedding APIs
+Semantic Search
+Streaming Responses
+Voice AI
+Image AI APIs
+--------------------------------
+FastAPI + Docker
+مشروع AI كامل بـ FastAPI
+FastAPI + RAG
+--------------------------------
+المستوى التالي
+قواعد البيانات
+SQLite
+PostgreSQL
+SQLAlchemy
+Authentication
+JWT
+OAuth2
+AI
+OpenAI APIs
+Ollama
+RAG Systems
+Deployment
+Docker
+Nginx
+VPS

@@ -1,0 +1,63 @@
+Database Fundamentals
+│
+├── SQL Basics
+├── Database Design
+├── Relationships
+├── Indexes
+├── Transactions
+└── ORM
+
+
+Database Design
+
+تعلم:
+
+Primary Key
+Foreign Key
+Unique
+Constraints
+Normalization
+
+
+Relationships
+Indexes
+
+
+Transactions
+        BEGIN;
+
+        UPDATE accounts
+        SET balance = balance - 100
+        WHERE id = 1;
+
+        UPDATE accounts
+        SET balance = balance + 100
+        WHERE id = 2;
+
+        COMMIT;
+
+ORM
+------------------
+
+SQL
+│
+├── SELECT
+├── JOIN
+├── GROUP BY
+├── HAVING
+├── Subquery
+└── Transactions
+
+Database Design
+│
+├── PK
+├── FK
+├── Relationships
+└── Indexes
+
+ORM
+│
+├── Models
+├── CRUD
+├── Relationships
+└── Migrations

@@ -7,48 +7,26 @@ from sqlalchemy.orm import DeclarativeBase
 class Base(DeclarativeBase):
     pass
 # =================
-from sqlalchemy import String,Text,Integer,Boolean,Float,Numeric,Date
+from sqlalchemy import String,Text,Integer,Boolean,Float,Numeric,Date,DateTime
 from sqlalchemy.orm import Mapped, mapped_column
-
-from sqlalchemy import DateTime
 from datetime import datetime
 
 from uuid import UUID
 from sqlalchemy import UUID as SQLUUID
 class User(Base): #SQLAlchemy 2.0
     __tablename__ = "users"
-
     id: Mapped[int] = mapped_column(primary_key=True)
-
-    name: Mapped[str] = mapped_column(String(100))
+    name: Mapped[str] = mapped_column(String(100), nullable=False)
     age: Mapped[int] = mapped_column(Integer)
     bio: Mapped[str] = mapped_column(Text)
     is_active: Mapped[bool] = mapped_column(Boolean,default=True)
     rating: Mapped[float] = mapped_column(Float)
     price: Mapped[float] = mapped_column(Numeric(10, 2)) #DECIMAL(10,2)
     birth_date: Mapped[date] = mapped_column(Date)
-    created_at: Mapped[datetime] = mapped_column(DateTime)
+    created_at: Mapped[datetime] = mapped_column(DateTime,default=datetime.utcnow)
     id: Mapped[UUID] = mapped_column(   SQLUUID,    primary_key=True)
     phone: Mapped[str | None] = mapped_column( nullable=True) # nullable=False
     email: Mapped[str] = mapped_column(String(255),unique=True,index=True)
-# =================
-
-from sqlalchemy import Column, String
-class User(Base): #(SQLAlchemy 1.x)
-    __tablename__ = "users"
-    name = Column(String(100))
-# =================
-from datetime import datetime
-from sqlalchemy import ( String, Boolean, DateTime, Integer)
-from sqlalchemy.orm import (Mapped,mapped_column)
-class User(Base):
-    __tablename__ = "users"
-    id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column( String(100), nullable=False)
-    email: Mapped[str] = mapped_column( String(255), unique=True, index=True )
-    is_active: Mapped[bool] = mapped_column( Boolean, default=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime,default=datetime.utcnow)
-
 
 # =================  Relationships   ================= 
 # ------------------------  

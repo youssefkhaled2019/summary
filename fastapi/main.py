@@ -61,19 +61,23 @@ def home(db = Depends(get_db)): #Dependency Injection
 # -------------------
 # router.py
 from fastapi import APIRouter
+from user.router import router as user_router
+from auth.router import router as auth_router
 router = APIRouter()
 
 @router.get("/")
 def get_users():
-    pass
+       return {"message":"api v1"}
+    # pass
 
 
 # main.py
-app.include_router(router)
-
+app.include_router(router,   prefix="/products",  tags=["Products"])
+app.include_router(user_router)
+app.include_router(auth_router)
 # -------------------
-from app.database import engine
-from app.database import Base
+from app.database import engine,Base
+from models import User # <-----
 
 Base.metadata.create_all( bind=engine)
 
